@@ -1,0 +1,142 @@
+$tim: #ba71da;
+$text-color: #9a9a9a;
+.app {
+  background-color: lightcoral;
+  height: 1000px;
+}
+nav.header__nav {
+  display: flex;
+  align-items: center;
+  height: 104px;
+  padding: 20px 50px;
+  background-color: rgba(0, 0, 0, 0.12);
+  div {
+    cursor: pointer;
+    img.logo {
+      height: auto;
+      width: auto;
+      max-width: 160px;
+      max-height: 300px;
+      margin: 0 55px 0 15px;
+    }
+  }
+
+  img.hamburgerbtn {
+    height: 25px;
+    padding: 0 15px;
+  }
+  ul.nav_lists {
+    display: flex;
+    list-style-type: none;
+    padding: 0 15px;
+    flex: 1;
+    position: relative;
+    li {
+      a {
+        letter-spacing: 2px;
+        display: block;
+        padding: 25px 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        color: #fff;
+      }
+      &.selected {
+        margin-top: auto;
+        margin-bottom: auto;
+        a {
+          background-color: $tim;
+          padding: 12px 15px 10px;
+          border-radius: 30px;
+          margin-left: 25px;
+        }
+      }
+    }
+  }
+}
+ul.sub_menu {
+  display: none;
+  position: absolute;
+  list-style-type: none;
+  background-color: white;
+  padding-left: 0;
+  box-shadow: 0px 2px 5px #f1f1f1;
+  li {
+    border-bottom: 1px solid #f1f1f1;
+    &:hover {
+      background-color: #f9f9f9;
+    }
+    a {
+      text-transform: initial;
+      display: block;
+      color: $text-color;
+      font-size: 1.4rem;
+      padding: 14px 25px;
+      min-width: 190px;
+    }
+    &.hot {
+      a::after {
+        content: "HOT";
+        float: right;
+        background-color: #f76570;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 10px;
+        line-height: 10px;
+        padding: 3px 5px;
+      }
+    }
+    &.has-sub-menu-2 {
+      position: relative;
+      a::after {
+        content: "";
+        float: right;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-color: transparent transparent transparent #9a9a9a;
+        margin-top: 1px;
+      }
+      &:hover {
+        ul {
+          display: block;
+        }
+      }
+      ul {
+        display: none;
+        list-style-type: none;
+        position: absolute;
+        margin-left: 190px;
+        top: 0;
+        padding-top: 0;
+        padding-left: 25px;
+
+        li {
+          background-color: white;
+          box-shadow: 0px 2px 5px #f1f1f1;
+          &:hover {
+            background-color: #f9f9f9;
+          }
+          &.best {
+            a::after {
+              content: "BEST";
+              // float: right;
+              background-color: #14b9d5;
+              border-width: 0;
+              margin-top: 0;
+              border-radius: 3px;
+              color: #fff;
+              font-size: 10px;
+              line-height: 10px;
+              padding: 3px 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+&.has-sub-menu:hover {
+  ul.sub_menu {
+    display: block;
+  }
+}
